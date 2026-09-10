@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🌿 Mood-to-Move
 
 > **"Check your mood. Move for 2 minutes. Feel the difference."**
@@ -88,3 +89,62 @@ For quick evaluation during the hackathon, you can click the **"Use Demo Account
 ## ⚠️ Wellness Disclaimer
 
 *Mood-to-Move provides general wellness and physical mobility activities and is not a medical or mental-health diagnostic tool.*
+=======
+# MoodToMove
+# 🌱 Mood-to-Move
+
+AI-powered personalized 2-minute wellness breaks
+for students.
+
+## Problem
+
+Students often spend long hours studying without
+taking meaningful breaks.
+
+## Solution
+
+Mood-to-Move understands the student's mood and
+personal context, then recommends a personalized
+2-minute activity.
+
+## Features
+
+- Mood selection
+- Mood story
+- AI recommendations
+- 2-minute activities
+- Before/after mood
+- Activity history
+- Personalized insights
+- Study mode
+- Analytics
+- Streaks and badges
+
+## Tech Stack
+
+Frontend:
+React
+
+Backend:
+Node.js
+Express.js
+
+Database:
+MongoDB
+
+AI:
+[Your AI API]
+
+## Architecture
+
+React → Express → AI + MongoDB
+
+## Team
+
+| Name | Department | Role |
+|------|------------|------|
+| Vulli Thraigambica | CSE | Frontend |
+| Neelarapu Anirudh | CSE | Backend |
+| Dharavath Venkatesh | CSE | Database |
+| Jashvitha Korabandi | IT | Activities & Analytics |
+>>>>>>> d52b5181bb0475740eacc6bac096a8d24e9002b7
