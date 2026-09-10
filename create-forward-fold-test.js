@@ -1,0 +1,76 @@
+import fs from 'fs';
+
+const svgContent = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fdf4ff"/>
+      <stop offset="100%" stop-color="#ffffff"/>
+    </linearGradient>
+    <linearGradient id="skin" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fde047" stop-opacity="0.2"/>
+      <stop offset="0%" stop-color="#fed7aa"/>
+      <stop offset="100%" stop-color="#fba86c"/>
+    </linearGradient>
+    <linearGradient id="shirt" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#c4b5fd"/>
+      <stop offset="100%" stop-color="#8b5cf6"/>
+    </linearGradient>
+    <linearGradient id="pants" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#86efac"/>
+      <stop offset="100%" stop-color="#22c55e"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#4c1d95" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <!-- Clean Background -->
+  <rect width="600" height="600" rx="32" fill="url(#bg)"/>
+
+  <!-- Floor ground line & soft drop shadow -->
+  <ellipse cx="300" cy="520" rx="140" ry="24" fill="#e2e8f0" opacity="0.6"/>
+  <ellipse cx="300" cy="520" rx="100" ry="16" fill="#cbd5e1" opacity="0.5"/>
+
+  <!-- Character Group: Standing Forward Fold (Uttanasana) -->
+  <g filter="url(#softShadow)">
+    <!-- Both Feet on Floor -->
+    <ellipse cx="270" cy="515" rx="22" ry="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+    <ellipse cx="310" cy="515" rx="22" ry="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+
+    <!-- Lower Legs / Calves (Standing with soft knees) -->
+    <path d="M 260 515 L 268 390 Q 275 350 282 310" stroke="url(#pants)" stroke-width="36" stroke-linecap="round" fill="none"/>
+    <path d="M 300 515 L 308 390 Q 315 350 322 310" stroke="url(#pants)" stroke-width="36" stroke-linecap="round" fill="none"/>
+
+    <!-- Thighs / Pelvis hinged forward -->
+    <!-- Pelvis apex at top (height ~270) -->
+    <path d="M 270 310 Q 290 270 330 270 Q 370 270 370 320" fill="url(#pants)"/>
+
+    <!-- Torso Hinging Downward (Bent forward over legs) -->
+    <!-- Torso folds down from hip (x:350, y:280) down to shoulders (x:330, y:430) -->
+    <path d="M 320 270 Q 360 270 375 330 L 360 430 L 310 430 L 300 330 Z" fill="url(#shirt)"/>
+
+    <!-- Head & Neck Hanging Downward -->
+    <!-- Neck -->
+    <path d="M 335 430 L 335 460" stroke="url(#skin)" stroke-width="20" stroke-linecap="round"/>
+    <!-- Head tilted down facing legs -->
+    <ellipse cx="335" cy="485" rx="26" ry="30" fill="url(#skin)"/>
+    <!-- Hair bun / ponytail dangling down -->
+    <path d="M 315 470 C 315 440 355 440 355 470 C 355 490 345 510 335 525 C 325 510 315 490 315 470 Z" fill="#4a2810"/>
+    <!-- Ponytail tip pointing downward with gravity -->
+    <path d="M 335 515 Q 340 545 332 555 Q 328 545 332 515 Z" fill="#4a2810"/>
+
+    <!-- Arms Dangling Downward to Feet -->
+    <path d="M 320 420 L 290 490 L 285 520" stroke="url(#shirt)" stroke-width="18" stroke-linecap="round" fill="none"/>
+    <circle cx="285" cy="522" r="10" fill="url(#skin)"/>
+
+    <path d="M 350 420 L 320 490 L 315 520" stroke="url(#shirt)" stroke-width="18" stroke-linecap="round" fill="none"/>
+    <circle cx="315" cy="522" r="10" fill="url(#skin)"/>
+
+    <!-- Gentle Stretch Motion Indicator (soft curved dashed line showing spinal release) -->
+    <path d="M 390 280 Q 400 360 380 440" stroke="#a855f7" stroke-width="3" stroke-dasharray="6 6" fill="none" opacity="0.6"/>
+    <polygon points="375,445 385,445 380,455" fill="#a855f7" opacity="0.8"/>
+  </g>
+</svg>`;
+
+fs.writeFileSync('Frontend/public/exercises/test-forward-fold.svg', svgContent);
+console.log('Written test-forward-fold.svg');

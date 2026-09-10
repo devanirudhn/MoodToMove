@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#faf5ff"/>
+      <stop offset="100%" stop-color="#ffffff"/>
+    </linearGradient>
+    <linearGradient id="skin" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fed7aa"/>
+      <stop offset="100%" stop-color="#fba86c"/>
+    </linearGradient>
+    <linearGradient id="shirt" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#c4b5fd"/>
+      <stop offset="100%" stop-color="#7c3aed"/>
+    </linearGradient>
+    <linearGradient id="pants" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#a7f3d0"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#4c1d95" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <!-- Clean Minimalist Background -->
+  <rect width="600" height="600" rx="32" fill="url(#bgGrad)"/>
+
+  <!-- Soft Floor Shadow -->
+  <ellipse cx="300" cy="520" rx="150" ry="24" fill="#e2e8f0" opacity="0.6"/>
+  <ellipse cx="300" cy="520" rx="100" ry="16" fill="#cbd5e1" opacity="0.4"/>
+
+  <!-- Posture Figure Visual -->
+  <g filter="url(#softShadow)">
+    
+    <!-- Window with Distant Sun and Clouds -->
+    <rect x="360" y="80" width="180" height="240" rx="16" fill="#e0f2fe" stroke="#93c5fd" stroke-width="4"/>
+    <circle cx="480" cy="140" r="28" fill="#fef08a"/>
+    <path d="M 380 220 Q 410 200 440 220 Q 470 200 500 220" stroke="#bae6fd" stroke-width="6" fill="none"/>
+    
+  <!-- Chair Backrest -->
+  <rect x="235" y="240" width="130" height="150" rx="20" fill="#94a3b8" opacity="0.3"/>
+  <rect x="245" y="250" width="110" height="130" rx="16" fill="#cbd5e1" opacity="0.5"/>
+  <!-- Chair Seat -->
+  <rect x="215" y="385" width="170" height="24" rx="12" fill="#64748b" opacity="0.4"/>
+  <!-- Chair Stem & Base -->
+  <line x1="300" y1="405" x2="300" y2="480" stroke="#64748b" stroke-width="12" stroke-linecap="round"/>
+  <line x1="240" y1="490" x2="360" y2="490" stroke="#475569" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="240" cy="495" r="6" fill="#334155"/>
+  <circle cx="360" cy="495" r="6" fill="#334155"/>
+  <circle cx="300" cy="495" r="6" fill="#334155"/>
+
+    <!-- Desk edge -->
+    <rect x="120" y="370" width="220" height="20" rx="6" fill="#e2e8f0"/>
+    <path d="M 260 395 L 260 480 L 290 480" stroke="url(#pants)" stroke-width="32" stroke-linecap="round" fill="none"/>
+    <path d="M 330 395 L 330 480 L 360 480" stroke="url(#pants)" stroke-width="32" stroke-linecap="round" fill="none"/>
+    <ellipse cx="295" cy="485" rx="18" ry="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+    <ellipse cx="365" cy="485" rx="18" ry="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+    <path d="M 260 395 L 270 240 L 330 240 L 340 395 Z" fill="url(#shirt)"/>
+    <!-- Hands resting calmly on desk -->
+    <path d="M 270 250 L 230 320 L 260 370" stroke="url(#shirt)" stroke-width="18" stroke-linecap="round" fill="none"/>
+    <circle cx="260" cy="370" r="10" fill="url(#skin)"/>
+    <!-- Head turned right gazing peaceful out window -->
+    <line x1="300" y1="240" x2="305" y2="195" stroke="url(#skin)" stroke-width="20" stroke-linecap="round"/>
+    <ellipse cx="305" cy="165" rx="28" ry="32" fill="url(#skin)"/>
+    <path d="M 280 150 C 280 120 330 120 330 150 Z" fill="#451a03"/>
+    <!-- Calm Open Eye Looking toward Window -->
+    <ellipse cx="320" cy="162" rx="4" ry="3" fill="#1e293b"/>
+    <!-- Distant Sight Line Rays -->
+    <line x1="330" y1="162" x2="440" y2="145" stroke="#38bdf8" stroke-width="3" stroke-dasharray="6 6"/>
+  
+  </g>
+</svg>

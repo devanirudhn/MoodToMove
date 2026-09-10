@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#faf5ff"/>
+      <stop offset="100%" stop-color="#ffffff"/>
+    </linearGradient>
+    <linearGradient id="skin" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fed7aa"/>
+      <stop offset="100%" stop-color="#fba86c"/>
+    </linearGradient>
+    <linearGradient id="shirt" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#c4b5fd"/>
+      <stop offset="100%" stop-color="#7c3aed"/>
+    </linearGradient>
+    <linearGradient id="pants" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#a7f3d0"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#4c1d95" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <!-- Clean Minimalist Background -->
+  <rect width="600" height="600" rx="32" fill="url(#bgGrad)"/>
+
+  <!-- Soft Floor Shadow -->
+  <ellipse cx="300" cy="520" rx="150" ry="24" fill="#e2e8f0" opacity="0.6"/>
+  <ellipse cx="300" cy="520" rx="100" ry="16" fill="#cbd5e1" opacity="0.4"/>
+
+  <!-- Posture Figure Visual -->
+  <g filter="url(#softShadow)">
+    
+    
+  <!-- Chair Backrest -->
+  <rect x="235" y="240" width="130" height="150" rx="20" fill="#94a3b8" opacity="0.3"/>
+  <rect x="245" y="250" width="110" height="130" rx="16" fill="#cbd5e1" opacity="0.5"/>
+  <!-- Chair Seat -->
+  <rect x="215" y="385" width="170" height="24" rx="12" fill="#64748b" opacity="0.4"/>
+  <!-- Chair Stem & Base -->
+  <line x1="300" y1="405" x2="300" y2="480" stroke="#64748b" stroke-width="12" stroke-linecap="round"/>
+  <line x1="240" y1="490" x2="360" y2="490" stroke="#475569" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="240" cy="495" r="6" fill="#334155"/>
+  <circle cx="360" cy="495" r="6" fill="#334155"/>
+  <circle cx="300" cy="495" r="6" fill="#334155"/>
+
+    <!-- Legs Seated -->
+    <path d="M 260 395 L 260 480 L 290 480" stroke="url(#pants)" stroke-width="32" stroke-linecap="round" fill="none"/>
+    <path d="M 330 395 L 330 480 L 360 480" stroke="url(#pants)" stroke-width="32" stroke-linecap="round" fill="none"/>
+    <ellipse cx="295" cy="485" rx="18" ry="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+    <ellipse cx="365" cy="485" rx="18" ry="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+    <!-- Torso Straight, Tall Spine -->
+    <path d="M 260 395 L 268 250 L 332 250 L 340 395 Z" fill="url(#shirt)"/>
+    <!-- Both Arms Resting Peacefully on Knees -->
+    <path d="M 270 260 L 255 335 L 265 390" stroke="url(#shirt)" stroke-width="18" stroke-linecap="round" fill="none"/>
+    <circle cx="265" cy="390" r="10" fill="url(#skin)"/>
+    <path d="M 330 260 L 345 335 L 335 390" stroke="url(#shirt)" stroke-width="18" stroke-linecap="round" fill="none"/>
+    <circle cx="335" cy="390" r="10" fill="url(#skin)"/>
+    <!-- Head Lowered Forward (Chin touching chest) -->
+    <!-- Curved back of neck elongated -->
+    <path d="M 300 250 Q 295 235 300 215" stroke="url(#skin)" stroke-width="24" stroke-linecap="round" fill="none"/>
+    <!-- Head angled down -->
+    <ellipse cx="300" cy="205" rx="28" ry="32" fill="url(#skin)"/>
+    <!-- Hair curving forward -->
+    <path d="M 275 190 C 275 160 325 160 325 190 C 315 175 285 175 275 190 Z" fill="#451a03"/>
+    <path d="M 300 165 Q 275 180 270 210" stroke="#451a03" stroke-width="16" stroke-linecap="round" fill="none"/>
+    <!-- Downward Flexion Stretch Indicator Arrow -->
+    <path d="M 300 140 L 300 170" stroke="#7c3aed" stroke-width="4" stroke-linecap="round"/>
+    <polygon points="292,165 300,178 308,165" fill="#7c3aed"/>
+    <!-- Cervical elongation curve -->
+    <path d="M 330 190 Q 338 215 335 240" stroke="#a855f7" stroke-width="3" stroke-dasharray="4 4" fill="none"/>
+  
+  </g>
+</svg>

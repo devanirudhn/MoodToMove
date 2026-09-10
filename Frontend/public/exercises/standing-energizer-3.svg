@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#faf5ff"/>
+      <stop offset="100%" stop-color="#ffffff"/>
+    </linearGradient>
+    <linearGradient id="skin" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fed7aa"/>
+      <stop offset="100%" stop-color="#fba86c"/>
+    </linearGradient>
+    <linearGradient id="shirt" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#c4b5fd"/>
+      <stop offset="100%" stop-color="#7c3aed"/>
+    </linearGradient>
+    <linearGradient id="pants" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#a7f3d0"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#4c1d95" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <!-- Clean Minimalist Background -->
+  <rect width="600" height="600" rx="32" fill="url(#bgGrad)"/>
+
+  <!-- Soft Floor Shadow -->
+  <ellipse cx="300" cy="520" rx="150" ry="24" fill="#e2e8f0" opacity="0.6"/>
+  <ellipse cx="300" cy="520" rx="100" ry="16" fill="#cbd5e1" opacity="0.4"/>
+
+  <!-- Posture Figure Visual -->
+  <g filter="url(#softShadow)">
+    
+    <line x1="275" y1="510" x2="280" y2="350" stroke="url(#pants)" stroke-width="34" stroke-linecap="round"/>
+    <line x1="325" y1="510" x2="320" y2="350" stroke="url(#pants)" stroke-width="34" stroke-linecap="round"/>
+    <ellipse cx="275" cy="515" rx="18" ry="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+    <ellipse cx="325" cy="515" rx="18" ry="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+    <path d="M 265 350 L 270 210 L 330 210 L 335 350 Z" fill="url(#shirt)"/>
+    <!-- Shaking Arms with Vibration Waves -->
+    <path d="M 270 220 Q 230 270 200 310" stroke="url(#shirt)" stroke-width="18" stroke-linecap="round" fill="none"/>
+    <circle cx="200" cy="310" r="10" fill="url(#skin)"/>
+    <path d="M 330 220 Q 370 270 400 310" stroke="url(#shirt)" stroke-width="18" stroke-linecap="round" fill="none"/>
+    <circle cx="400" cy="310" r="10" fill="url(#skin)"/>
+    <line x1="300" y1="210" x2="300" y2="165" stroke="url(#skin)" stroke-width="20" stroke-linecap="round"/>
+    <ellipse cx="300" cy="135" rx="26" ry="30" fill="url(#skin)"/>
+    <path d="M 276 120 C 276 90 324 90 324 120 Z" fill="#451a03"/>
+    <!-- Vibration Ripples at Wrists & Feet -->
+    <path d="M 180 300 Q 185 310 180 320" stroke="#7c3aed" stroke-width="3" fill="none"/>
+    <path d="M 170 295 Q 175 310 170 325" stroke="#7c3aed" stroke-width="3" fill="none"/>
+    <path d="M 420 300 Q 415 310 420 320" stroke="#7c3aed" stroke-width="3" fill="none"/>
+    <path d="M 430 295 Q 425 310 430 325" stroke="#7c3aed" stroke-width="3" fill="none"/>
+  
+  </g>
+</svg>

@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#faf5ff" />
+      <stop offset="100%" stop-color="#ffffff" />
+    </linearGradient>
+    <linearGradient id="skin" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fed7aa" />
+      <stop offset="100%" stop-color="#fdba74" />
+    </linearGradient>
+    <linearGradient id="shirt" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c4b5fd" />
+      <stop offset="100%" stop-color="#8b5cf6" />
+    </linearGradient>
+    <linearGradient id="pants" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a7f3d0" />
+      <stop offset="100%" stop-color="#34d399" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0f172a" flood-opacity="0.06" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="400" height="400" rx="28" fill="url(#bgGrad)" />
+  <circle cx="200" cy="190" r="130" fill="#9333ea" opacity="0.08" />
+
+  <!-- Posture Figure Visual -->
+  <g filter="url(#shadow)">
+    
+    <!-- Leg 1 Grounded, Leg 2 Marching -->
+    <line x1="175" y1="180" x2="175" y2="290" stroke="url(#pants)" stroke-width="24" stroke-linecap="round" />
+    <path d="M 220 180 L 230 230 L 255 260" stroke="url(#pants)" stroke-width="24" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+    <path d="M 175 180 L 180 110 L 220 110 L 225 180 Z" fill="url(#shirt)" />
+    <ellipse cx="200" cy="80" rx="20" ry="24" fill="url(#skin)" />
+    <path d="M 186 70 C 190 50 214 50 218 70 Z" fill="#475569" />
+    <line x1="175" y1="120" x2="150" y2="170" stroke="url(#shirt)" stroke-width="14" stroke-linecap="round" />
+    <line x1="225" y1="120" x2="250" y2="170" stroke="url(#shirt)" stroke-width="14" stroke-linecap="round" />
+  
+  </g>
+
+  <!-- Title Badge -->
+  <rect x="30" y="20" width="340" height="32" rx="16" fill="#ffffff" stroke="#9333ea" stroke-opacity="0.4" stroke-width="1.5" />
+  <text x="200" y="41" text-anchor="middle" fill="#9333ea" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="800" letter-spacing="0.5">
+    STEP 1: RHYTHMIC MARCH IN PLACE
+  </text>
+
+  <!-- Cues Instruction Strip -->
+  <rect x="24" y="344" width="352" height="38" rx="14" fill="#0f172a" opacity="0.9" />
+  <text x="200" y="368" text-anchor="middle" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600">
+    March in place with soft knees and relaxed arm swings to stimulate blood flow
+  </text>
+</svg>
