@@ -1,10 +1,13 @@
 import Activity from '../models/Activity.js';
+import { ensureActivitiesSeeded } from '../seed.js';
 
 export const getRecommendation = async (req, res, next) => {
   try {
-    const { mood, reason = '', preferences = [] } = req.body;
+    const rawMood = req.body?.mood !== undefined ? req.body.mood : req.query?.mood;
+    const rawReason = req.body?.reason !== undefined ? req.body.reason : req.query?.reason;
+    const preferences = req.body?.preferences || [];
 
-    const moodScore = Number(mood);
+    const moodScore = Number(rawMood || 3);
     if (!moodScore || moodScore < 1 || moodScore > 5) {
       return res.status(400).json({
         success: false,
@@ -12,8 +15,13 @@ export const getRecommendation = async (req, res, next) => {
       });
     }
 
-    const lowerReason = (reason || '').toLowerCase();
-    const allActivities = await Activity.find({ active: true });
+    const lowerReason = (rawReason || '').toLowerCase();
+    let allActivities = await Activity.find({ active: true });
+
+    if (!allActivities.length) {
+      await ensureActivitiesSeeded();
+      allActivities = await Activity.find({ active: true });
+    }
 
     if (!allActivities.length) {
       return res.status(404).json({

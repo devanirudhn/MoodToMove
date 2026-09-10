@@ -1,5 +1,6 @@
 import Activity from '../models/Activity.js';
 import mongoose from 'mongoose';
+import { ensureActivitiesSeeded } from '../seed.js';
 
 export const getActivities = async (req, res, next) => {
   try {
@@ -9,7 +10,12 @@ export const getActivities = async (req, res, next) => {
       filter.category = category;
     }
 
-    const activities = await Activity.find(filter).sort({ name: 1 });
+    let activities = await Activity.find(filter).sort({ name: 1 });
+    if (!activities.length) {
+      await ensureActivitiesSeeded();
+      activities = await Activity.find(filter).sort({ name: 1 });
+    }
+
     return res.status(200).json({
       success: true,
       count: activities.length,
@@ -30,6 +36,15 @@ export const getActivityById = async (req, res, next) => {
     }
     if (!activity) {
       activity = await Activity.findOne({ slug: id.toLowerCase(), active: true });
+    }
+    if (!activity) {
+      await ensureActivitiesSeeded();
+      if (mongoose.Types.ObjectId.isValid(id)) {
+        activity = await Activity.findOne({ _id: id, active: true });
+      }
+      if (!activity) {
+        activity = await Activity.findOne({ slug: id.toLowerCase(), active: true });
+      }
     }
 
     if (!activity) {

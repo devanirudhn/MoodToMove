@@ -8,7 +8,7 @@ dotenv.config();
 
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/mood_to_move';
 
-const activities = [
+export const activities = [
   {
     name: 'Box Breathing',
     slug: 'box-breathing',
@@ -371,6 +371,21 @@ const activities = [
   }
 ];
 
+export async function ensureActivitiesSeeded() {
+  try {
+    const count = await Activity.countDocuments();
+    if (count < activities.length) {
+      console.log(`[Seed] Found ${count} activities. Seeding all ${activities.length} activities...`);
+      for (const act of activities) {
+        await Activity.findOneAndUpdate({ slug: act.slug }, act, { upsert: true, new: true });
+      }
+      console.log(`[Seed] Successfully verified ${activities.length} activities.`);
+    }
+  } catch (error) {
+    console.error('[Seed Error]:', error.message);
+  }
+}
+
 async function seedDatabase() {
   try {
     console.log('[Seed] Connecting to MongoDB...');
@@ -411,4 +426,6 @@ async function seedDatabase() {
   }
 }
 
-seedDatabase();
+if (process.argv[1] && process.argv[1].endsWith('seed.js')) {
+  seedDatabase();
+}

@@ -11,6 +11,7 @@ import moodRoutes from './routes/moodRoutes.js';
 import sessionRoutes from './routes/sessionRoutes.js';
 import statsRoutes from './routes/statsRoutes.js';
 import { errorHandler } from './middleware/errorHandler.js';
+import { ensureActivitiesSeeded } from './seed.js';
 
 dotenv.config();
 
@@ -86,6 +87,20 @@ app.use('/sessions', sessionRoutes);
 app.use('/api/stats', statsRoutes);
 app.use('/stats', statsRoutes);
 
+// Seed endpoint (callable anytime to ensure 10 activities and default demo user exist)
+const seedHandler = async (req, res) => {
+  try {
+    await ensureActivitiesSeeded();
+    res.status(200).json({ success: true, message: 'Database activities verified/seeded successfully.' });
+  } catch (err) {
+    res.status(500).json({ success: false, message: err.message });
+  }
+};
+app.post('/api/seed', seedHandler);
+app.post('/seed', seedHandler);
+app.get('/api/seed', seedHandler);
+app.get('/seed', seedHandler);
+
 // Fallback 404 for unknown API routes
 app.use((req, res) => {
   res.status(404).json({
@@ -100,8 +115,9 @@ app.use(errorHandler);
 // Connect to MongoDB and start server
 mongoose
   .connect(MONGODB_URI)
-  .then(() => {
+  .then(async () => {
     console.log(`[MongoDB] Connected successfully to ${MONGODB_URI}`);
+    await ensureActivitiesSeeded();
     app.listen(PORT, () => {
       console.log(`[Mood-to-Move Server] Listening on http://localhost:${PORT}`);
     });
