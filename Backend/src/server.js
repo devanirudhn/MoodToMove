@@ -44,26 +44,50 @@ app.use(
 app.use(express.json());
 
 // Health Check
-app.get('/api/health', (req, res) => {
+const healthHandler = (req, res) => {
   res.status(200).json({
     status: 'online',
     product: 'Mood-to-Move API',
     uptime: process.uptime(),
     timestamp: new Date().toISOString()
   });
+};
+app.get('/api/health', healthHandler);
+app.get('/health', healthHandler);
+
+// Root Welcome / Status
+app.get('/', (req, res) => {
+  res.status(200).json({
+    status: 'online',
+    product: 'Mood-to-Move API',
+    message: 'Welcome to Mood-to-Move API. Endpoints are available under /api/*'
+  });
 });
 
-// API Routes
+// API Routes (Mounted with and without /api prefix for deployment compatibility)
 app.use('/api/auth', authRoutes);
+app.use('/auth', authRoutes);
+
 app.use('/api/users', userRoutes);
+app.use('/users', userRoutes);
+
 app.use('/api/activities', activityRoutes);
+app.use('/activities', activityRoutes);
+
 app.use('/api/recommendations', recommendationRoutes);
+app.use('/recommendations', recommendationRoutes);
+
 app.use('/api/moods', moodRoutes);
+app.use('/moods', moodRoutes);
+
 app.use('/api/sessions', sessionRoutes);
+app.use('/sessions', sessionRoutes);
+
 app.use('/api/stats', statsRoutes);
+app.use('/stats', statsRoutes);
 
 // Fallback 404 for unknown API routes
-app.use('/api/*', (req, res) => {
+app.use((req, res) => {
   res.status(404).json({
     success: false,
     message: `API endpoint ${req.originalUrl} not found.`
