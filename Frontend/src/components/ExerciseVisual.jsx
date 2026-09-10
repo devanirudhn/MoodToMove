@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { Sparkles, ShieldCheck } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
 
-// Maps EVERY activity and EVERY step (1-4) to its exact real high-res JPEG image on disk
+// Maps EVERY activity and EVERY step (1-4) to its EXACT matching pose demonstration
 const getExactPoseImage = (slug, stepNumber = 1) => {
   const step = Math.min(Math.max(Number(stepNumber) || 1, 1), 4);
 
-  // 1. Desk Stretch (4 exact JPG images)
+  // 1. Desk Stretch
   if (slug === 'desk-stretch') {
     switch (step) {
       case 1:
@@ -36,43 +36,43 @@ const getExactPoseImage = (slug, stepNumber = 1) => {
     }
   }
 
-  // 2. Box Breathing (4 exact step JPG images)
-  if (slug === 'box-breathing') {
+  // 2. Neck Reset (Exact anatomical cervical poses)
+  if (slug === 'neck-reset') {
     switch (step) {
       case 1:
         return {
-          src: '/exercises/box-breathing-1.jpg',
-          title: 'Step 1: Deep Nose Inhale (4s)',
-          cue: 'Inhale deeply through your nose, expanding lower belly with oxygen.'
+          src: '/exercises/neck-reset-1.jpg',
+          title: 'Step 1: Lateral Neck Tilt (Right)',
+          cue: 'Tilt right ear toward shoulder with hand resting softly on temple.'
         };
       case 2:
         return {
-          src: '/exercises/box-breathing-2.jpg',
-          title: 'Step 2: Hold Breath Gently (4s)',
-          cue: 'Pause with lungs comfortably full • Keep chest relaxed and still.'
+          src: '/exercises/neck-reset-2.svg',
+          title: 'Step 2: Chin to Chest Flexion',
+          cue: 'Lower chin smoothly toward chest • Feel back of neck elongate.'
         };
       case 3:
         return {
-          src: '/exercises/box-breathing-3.jpg',
-          title: 'Step 3: Slow Mouth Exhale (4s)',
-          cue: 'Release all air smoothly through mouth • Let shoulders drop down.'
+          src: '/exercises/neck-reset-3.svg',
+          title: 'Step 3: Gentle Throat Extension',
+          cue: 'Tilt chin upward toward ceiling • Open throat without crunching neck.'
         };
       case 4:
       default:
         return {
-          src: '/exercises/box-breathing-4.jpg',
-          title: 'Step 4: Hold Empty & Rest (4s)',
-          cue: 'Pause in serene stillness before the next deep breath cycle.'
+          src: '/exercises/neck-reset-4.svg',
+          title: 'Step 4: Smooth Half-Circle Rolls',
+          cue: 'Draw slow half-circles with chin from shoulder to shoulder.'
         };
     }
   }
 
-  // 3. Shoulder Release (4 exact step JPG images)
+  // 3. Shoulder Release (Exact shoulder mobility poses)
   if (slug === 'shoulder-release') {
     switch (step) {
       case 1:
         return {
-          src: '/exercises/shoulder-release-1.jpg',
+          src: '/exercises/shoulder-release-1.svg',
           title: 'Step 1: Shoulder Shrug to Ears',
           cue: 'Inhale deeply and shrug both shoulders straight up to ears.'
         };
@@ -84,59 +84,28 @@ const getExactPoseImage = (slug, stepNumber = 1) => {
         };
       case 3:
         return {
-          src: '/exercises/shoulder-release-3.jpg',
+          src: '/exercises/shoulder-release-3.svg',
           title: 'Step 3: Forward Shoulder Rolls',
-          cue: 'Roll shoulders smoothly forward with relaxed rhythmic breaths.'
+          cue: 'Reverse direction: roll shoulders forward with relaxed breaths.'
         };
       case 4:
       default:
         return {
-          src: '/exercises/shoulder-release-4.jpg',
-          title: 'Step 4: Chest Open & Hands Clasped',
-          cue: 'Clasp hands behind chair, open chest broad, and release neck.'
+          src: '/exercises/shoulder-release-4.svg',
+          title: 'Step 4: Clasp Hands Behind Back',
+          cue: 'Clasp hands behind back, squeeze shoulder blades, and open chest.'
         };
     }
   }
 
-  // 4. Neck Reset (4 exact step JPG images)
-  if (slug === 'neck-reset') {
-    switch (step) {
-      case 1:
-        return {
-          src: '/exercises/neck-reset-1.jpg',
-          title: 'Step 1: Lateral Neck Tilt (Right)',
-          cue: 'Tilt right ear toward shoulder with hand resting softly on temple.'
-        };
-      case 2:
-        return {
-          src: '/exercises/neck-reset-2.jpg',
-          title: 'Step 2: Lateral Neck Tilt (Left)',
-          cue: 'Switch sides: tilt left ear smoothly toward left shoulder.'
-        };
-      case 3:
-        return {
-          src: '/exercises/neck-reset-3.jpg',
-          title: 'Step 3: Chin to Chest Flexion',
-          cue: 'Lower chin smoothly toward chest • Feel back of neck elongate.'
-        };
-      case 4:
-      default:
-        return {
-          src: '/exercises/neck-reset-4.jpg',
-          title: 'Step 4: Smooth Half-Circle Rolls',
-          cue: 'Draw slow half-circles with chin from shoulder to shoulder.'
-        };
-    }
-  }
-
-  // 5. Posture Reset (4 exact step JPG images)
+  // 4. Posture Reset (Exact spinal alignment poses)
   if (slug === 'posture-reset') {
     switch (step) {
       case 1:
         return {
-          src: '/exercises/posture-reset-1.jpg',
+          src: '/exercises/posture-reset-1.svg',
           title: 'Step 1: Cervical Spine Chin Tuck',
-          cue: 'Tuck chin straight back horizontally to correct forward slouch.'
+          cue: 'Tuck chin straight back horizontally to correct forward-head slouch.'
         };
       case 2:
         return {
@@ -146,21 +115,52 @@ const getExactPoseImage = (slug, stepNumber = 1) => {
         };
       case 3:
         return {
-          src: '/exercises/posture-reset-3.jpg',
+          src: '/exercises/posture-reset-3.svg',
           title: 'Step 3: Overhead Y-Reach',
           cue: 'Reach arms into wide overhead Y while keeping shoulder blades down.'
         };
       case 4:
       default:
         return {
-          src: '/exercises/posture-reset-4.jpg',
-          title: 'Step 4: Tall Mountain Alignment',
-          cue: 'Drop arms to sides • Feel tall, aligned spine from tailbone to crown.'
+          src: '/exercises/posture-reset-4.svg',
+          title: 'Step 4: Mountain Posture Alignment',
+          cue: 'Lower arms to sides, roll shoulders back, feel tall aligned spine.'
         };
     }
   }
 
-  // 6. Standing Energizer (4 exact step JPG images)
+  // 5. Full Body Reset (Exact full-body poses including Forward Fold)
+  if (slug === 'full-body-reset') {
+    switch (step) {
+      case 1:
+        return {
+          src: '/exercises/full-body-reset-1.jpg',
+          title: 'Step 1: Interlaced Upward Palm Stretch',
+          cue: 'Interlace fingers, push palms to ceiling, and stretch entire spine.'
+        };
+      case 2:
+        return {
+          src: '/exercises/full-body-reset-2.svg',
+          title: 'Step 2: Soft-Knee Forward Fold (Uttanasana)',
+          cue: 'Hinge at hips with soft knees • Let head, neck, and arms hang loose.'
+        };
+      case 3:
+        return {
+          src: '/exercises/full-body-reset-3.svg',
+          title: 'Step 3: Standing Hip Circles',
+          cue: 'Place hands on hips and circle smoothly 5 times each direction.'
+        };
+      case 4:
+      default:
+        return {
+          src: '/exercises/full-body-reset-4.svg',
+          title: 'Step 4: Victorious Whole Body Reset',
+          cue: 'Shake out hands and feet, breathe deeply, and finish refreshed.'
+        };
+    }
+  }
+
+  // 6. Standing Energizer
   if (slug === 'standing-energizer') {
     switch (step) {
       case 1:
@@ -177,7 +177,7 @@ const getExactPoseImage = (slug, stepNumber = 1) => {
         };
       case 3:
         return {
-          src: '/exercises/standing-energizer-3.jpg',
+          src: '/exercises/standing-energizer-3.svg',
           title: 'Step 3: Shake Out Hands & Limbs',
           cue: 'Shake out hands, wrists, and feet to shed sedentary stiffness.'
         };
@@ -191,49 +191,18 @@ const getExactPoseImage = (slug, stepNumber = 1) => {
     }
   }
 
-  // 7. Full Body Reset (4 exact step JPG images)
-  if (slug === 'full-body-reset') {
-    switch (step) {
-      case 1:
-        return {
-          src: '/exercises/full-body-reset-1.jpg',
-          title: 'Step 1: Interlaced Upward Palm Reach',
-          cue: 'Interlace fingers, push palms to ceiling, and stretch entire spine.'
-        };
-      case 2:
-        return {
-          src: '/exercises/full-body-reset-2.jpg',
-          title: 'Step 2: Gentle Soft-Knee Forward Fold',
-          cue: 'Hinge at hips with soft knees • Let head, neck, and arms hang loose.'
-        };
-      case 3:
-        return {
-          src: '/exercises/full-body-reset-3.jpg',
-          title: 'Step 3: Standing Hip Circles',
-          cue: 'Circle hips 5 times clockwise, then 5 counterclockwise.'
-        };
-      case 4:
-      default:
-        return {
-          src: '/exercises/full-body-reset-4.jpg',
-          title: 'Step 4: Victorious Whole Body Reset',
-          cue: 'Shake out hands and feet, breathe deeply, and finish refreshed.'
-        };
-    }
-  }
-
-  // 8. Eye Break (4 exact step JPG images)
+  // 7. Eye Break (Exact 20-20-20 and cupping poses)
   if (slug === 'eye-break') {
     switch (step) {
       case 1:
         return {
-          src: '/exercises/eye-break-1.jpg',
+          src: '/exercises/eye-break-1.svg',
           title: 'Step 1: 20-20-20 Distant Gaze',
-          cue: 'Look 20 feet away from your screen to relax accommodation muscles.'
+          cue: 'Look away from screens and gaze at an object 20 feet away.'
         };
       case 2:
         return {
-          src: '/exercises/eye-break-2.jpg',
+          src: '/exercises/eye-break-2.svg',
           title: 'Step 2: Mindful Blinking Sequence',
           cue: 'Blink slowly and deliberately 10 times to naturally lubricate eyes.'
         };
@@ -247,80 +216,102 @@ const getExactPoseImage = (slug, stepNumber = 1) => {
       default:
         return {
           src: '/exercises/eye-break-4.jpg',
-          title: 'Step 4: Serene Darkness & Awakening',
-          cue: 'Soak in the dark warmth and reopen your eyes feeling clear and alert.'
+          title: 'Step 4: Serene Darkness Awakening',
+          cue: 'Breathe in dark warmth, then open eyes feeling clear and alert.'
         };
     }
   }
 
-  // 9. Mini Walk (4 exact step JPG images)
+  // 8. Mini Walk (Exact indoor walking stride poses)
   if (slug === 'mini-walk') {
     switch (step) {
       case 1:
         return {
           src: '/exercises/mini-walk-1.jpg',
           title: 'Step 1: Relaxed Indoor Stride',
-          cue: 'Pace around room or corridor at a relaxed, rhythmic tempo.'
+          cue: 'Begin walking around room or hallway at a relaxed, rhythmic tempo.'
         };
       case 2:
         return {
           src: '/exercises/mini-walk-2.jpg',
           title: 'Step 2: Brisk Cardiovascular Stride',
-          cue: 'Pace back across the room, feeling rhythmic foot contact on the floor.'
+          cue: 'Pick up the pace slightly • Notice rhythmic foot contact on floor.'
         };
       case 3:
         return {
-          src: '/exercises/mini-walk-3.jpg',
+          src: '/exercises/mini-walk-3.svg',
           title: 'Step 3: Walking Arm & Shoulder Rolls',
           cue: 'Roll shoulders gently and breathe in steady sync with your steps.'
         };
       case 4:
       default:
         return {
-          src: '/exercises/mini-walk-4.jpg',
-          title: 'Step 4: Mindful Deceleration & Return',
+          src: '/exercises/mini-walk-4.svg',
+          title: 'Step 4: Mindful Deceleration & Deep Breath',
           cue: 'Slow down smoothly, take 3 deep breaths, and return revitalized.'
         };
     }
   }
 
-  // 10. Focus Reset (4 exact step JPG images)
+  // 9. Focus Reset (Exact 5-4-3-2-1 Sensory Grounding poses)
   if (slug === 'focus-reset') {
     switch (step) {
       case 1:
         return {
-          src: '/exercises/focus-reset-1.jpg',
+          src: '/exercises/focus-reset-1.svg',
           title: 'Step 1: Visual Grounding (3 Objects)',
           cue: 'Look around and acknowledge 3 distinct colors or objects you can see.'
         };
       case 2:
         return {
-          src: '/exercises/focus-reset-2.jpg',
+          src: '/exercises/focus-reset-2.svg',
           title: 'Step 2: Tactile Grounding (2 Textures)',
           cue: 'Notice 2 physical textures: chair back support and feet grounded.'
         };
       case 3:
         return {
-          src: '/exercises/focus-reset-3.jpg',
+          src: '/exercises/focus-reset-3.svg',
           title: 'Step 3: Auditory Presence (1 Sound)',
           cue: 'Tune in closely to 1 subtle ambient sound in the room.'
         };
       case 4:
       default:
         return {
-          src: '/exercises/focus-reset-4.jpg',
+          src: '/exercises/focus-reset-4.svg',
           title: 'Step 4: Centering Diaphragmatic Breath',
-          cue: 'Take two grounding diaphragmatic breaths to anchor your focus.'
+          cue: 'Place hand over heart and take two deep diaphragmatic breaths.'
         };
     }
   }
 
-  // Default fallback
-  return {
-    src: `/exercises/${slug}-${step}.jpg`,
-    title: `Step ${step}: Guided Movement`,
-    cue: 'Follow the posture carefully, breathing slowly and steadily.'
-  };
+  // 10. Box Breathing (Exact Lotus Pranayama breath stages)
+  switch (step) {
+    case 1:
+      return {
+        src: '/exercises/box-breathing-1.jpg',
+        title: 'Step 1: Deep Nose Inhale (4s)',
+        cue: 'Sit in lotus posture • Inhale deeply through nose, expanding belly.'
+      };
+    case 2:
+      return {
+        src: '/exercises/box-breathing-2.jpg',
+        title: 'Step 2: Hold Breath Gently (4s)',
+        cue: 'Pause with lungs comfortably full • Keep chest relaxed in stillness.'
+      };
+    case 3:
+      return {
+        src: '/exercises/box-breathing-3.jpg',
+        title: 'Step 3: Slow Mouth Exhale (4s)',
+        cue: 'Release all air smoothly through mouth • Let shoulders drop down.'
+      };
+    case 4:
+    default:
+      return {
+        src: '/exercises/box-breathing-4.jpg',
+        title: 'Step 4: Hold Empty & Rest (4s)',
+        cue: 'Pause in serene stillness before the next deep breath cycle.'
+      };
+  }
 };
 
 export const ExerciseVisual = ({ activity, activeStepNumber = 1, className = '' }) => {
@@ -338,14 +329,13 @@ export const ExerciseVisual = ({ activity, activeStepNumber = 1, className = '' 
           alt={poseData.title}
           onLoad={() => setImgLoaded(true)}
           onError={(e) => {
-            // High reliability fallback cascade: step image -> activity main image -> desk stretch
             if (!e.target.src.endsWith(`${slug}.jpg`)) {
               e.target.src = `/exercises/${slug}.jpg`;
             } else {
               e.target.src = '/exercises/desk-stretch.jpg';
             }
           }}
-          className={`w-full h-full object-contain p-2 transition-all duration-500 ${
+          className={`w-full h-full object-contain p-2 transition-all duration-300 ${
             imgLoaded ? 'opacity-100 scale-100' : 'opacity-80 scale-95'
           }`}
         />

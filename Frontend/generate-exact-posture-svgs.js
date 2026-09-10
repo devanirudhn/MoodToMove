@@ -648,6 +648,61 @@ poses['focus-reset-4'] = createPoseSVG({
   `
 });
 
+// ==========================================
+// 8. MINI WALK (mini-walk-3 and mini-walk-4)
+// ==========================================
+
+// Step 3: Walking Arm & Shoulder Rolls
+poses['mini-walk-3'] = createPoseSVG({
+  id: 'mini-walk-3',
+  description: 'Walking Arm & Shoulder Rolls',
+  figureElements: `
+    <!-- Walking Stride Legs -->
+    <path d="M 310 350 L 335 440 L 360 510" stroke="url(#pants)" stroke-width="32" stroke-linecap="round" fill="none"/>
+    <ellipse cx="365" cy="515" rx="20" ry="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+    <path d="M 290 350 L 265 430 L 230 495" stroke="url(#pants)" stroke-width="32" stroke-linecap="round" fill="none"/>
+    <ellipse cx="225" cy="500" rx="20" ry="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+    <!-- Torso -->
+    <path d="M 270 350 L 280 210 L 335 210 L 325 350 Z" fill="url(#shirt)"/>
+    <!-- Arms Swinging with Shoulder Rolling Circles -->
+    <path d="M 280 220 L 250 290 L 235 340" stroke="url(#shirt)" stroke-width="18" stroke-linecap="round" fill="none"/>
+    <circle cx="235" cy="340" r="10" fill="url(#skin)"/>
+    <path d="M 335 220 L 365 290 L 385 340" stroke="url(#shirt)" stroke-width="18" stroke-linecap="round" fill="none"/>
+    <circle cx="385" cy="340" r="10" fill="url(#skin)"/>
+    <!-- Shoulder Roll Circular Cue -->
+    <path d="M 265 230 A 18 18 0 1 1 265 205" fill="none" stroke="#7c3aed" stroke-width="3.5"/>
+    <polygon points="258,208 265,198 272,208" fill="#7c3aed"/>
+    <line x1="305" y1="210" x2="305" y2="165" stroke="url(#skin)" stroke-width="20" stroke-linecap="round"/>
+    <ellipse cx="305" cy="135" rx="26" ry="30" fill="url(#skin)"/>
+    <path d="M 282 120 C 282 90 328 90 328 120 Z" fill="#451a03"/>
+    <path d="M 282 135 Q 260 150 268 180" stroke="#451a03" stroke-width="12" stroke-linecap="round" fill="none"/>
+  `
+});
+
+// Step 4: Mindful Deceleration & Deep Breath (Standing tall, slowing down)
+poses['mini-walk-4'] = createPoseSVG({
+  id: 'mini-walk-4',
+  description: 'Mindful Deceleration & Deep Breath',
+  figureElements: `
+    <!-- Standing Upright Feet Grounded -->
+    <line x1="280" y1="510" x2="280" y2="350" stroke="url(#pants)" stroke-width="34" stroke-linecap="round"/>
+    <line x1="320" y1="510" x2="320" y2="350" stroke="url(#pants)" stroke-width="34" stroke-linecap="round"/>
+    <ellipse cx="280" cy="515" rx="18" ry="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+    <ellipse cx="320" cy="515" rx="18" ry="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+    <path d="M 265 350 L 270 210 L 330 210 L 335 350 Z" fill="url(#shirt)"/>
+    <path d="M 270 220 L 250 310 L 260 380" stroke="url(#shirt)" stroke-width="18" stroke-linecap="round" fill="none"/>
+    <circle cx="260" cy="380" r="10" fill="url(#skin)"/>
+    <path d="M 330 220 L 350 310 L 340 380" stroke="url(#shirt)" stroke-width="18" stroke-linecap="round" fill="none"/>
+    <circle cx="340" cy="380" r="10" fill="url(#skin)"/>
+    <line x1="300" y1="210" x2="300" y2="165" stroke="url(#skin)" stroke-width="20" stroke-linecap="round"/>
+    <ellipse cx="300" cy="135" rx="26" ry="30" fill="url(#skin)"/>
+    <path d="M 276 120 C 276 90 324 90 324 120 Z" fill="#451a03"/>
+    <!-- Deep Centering Breath Waves -->
+    <circle cx="300" cy="270" r="35" fill="none" stroke="#10b981" stroke-width="3" stroke-dasharray="5 5" opacity="0.7"/>
+    <circle cx="300" cy="270" r="22" fill="#a7f3d0" opacity="0.3"/>
+  `
+});
+
 // Write all custom poses
 let count = 0;
 for (const [key, svg] of Object.entries(poses)) {

@@ -152,11 +152,15 @@ export const ActivityDetailPage = () => {
                   {/* Posture Step Image Thumbnail */}
                   <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-xl overflow-hidden border border-lavender-200 bg-white shrink-0 shadow-2xs flex items-center justify-center">
                     <img
-                      src={`/exercises/${activity.slug}-${stepNum}.jpg`}
+                      src={`/exercises/${activity.slug}-${stepNum}.svg`}
                       alt={`Step ${stepNum} posture`}
                       className="w-full h-full object-contain p-1"
                       onError={(e) => {
-                        e.target.src = `/exercises/${activity.slug}.jpg`;
+                        if (e.target.src.endsWith('.svg')) {
+                          e.target.src = `/exercises/${activity.slug}-${stepNum}.jpg`;
+                        } else {
+                          e.target.src = `/exercises/${activity.slug}.jpg`;
+                        }
                       }}
                     />
                   </div>
